@@ -39,4 +39,26 @@ namespace TodoIt.Tests
         }
 
     }
+
+    public class TodoTests
+    {
+        [Fact]
+        public void TodoConstructor()
+        {
+            //Arrange
+            int todoId = 24;
+            string description = "nothing";
+            //bool done = false;
+            //Person assignee = new Person(34, "Jake", "Andersson");
+
+            //Act
+            Todo result = new Todo(todoId, description);
+
+            //Assert
+            Assert.Equal(todoId.ToString(), result.todoId.ToString());
+            Assert.Equal(description, result.Description);
+           
+            //Assert.Equal(assignee, result.assignee);
+        }
+    }
 }

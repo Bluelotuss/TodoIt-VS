@@ -26,12 +26,12 @@ namespace TodoIt
         {
             for (var i = 0; i < tasks.Length; i++)
             {
-                if (tasks[i].TodoId == todoId)
+                if (tasks[i].TodoId == todoId)  //Why TodoId?
                 {
                     return tasks[i];
                 }
             }
-            throw new InvalidOperationException("Did not find value expected.");
+            throw new InvalidOperationException("Did not find expected value.");
         }
 
         // e. Add a method that creates a new Todo, adds the newly created object in the array and

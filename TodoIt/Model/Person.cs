@@ -6,7 +6,10 @@ namespace TodoIt
     public class Person
     {
         //fields
-        public int personId { get; set; }
+
+        readonly int personId;
+       
+        public int PersonId { get { return personId; } }
         string firstName;
         public string FirstName
         {

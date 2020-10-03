@@ -25,16 +25,26 @@ namespace TodoIt
                 }
             }
         }
-        public bool done { get; set; }
+        bool done;
+        public bool Done { get { return done; } set { done = value; } }
         public Person assignee { get; set; }
 
         public Todo(int todoId, string description)
         {
             this.todoId = todoId;
             Description = description;
-            //this.done = done;
-            //this.assignee = assignee;
         }
 
+        public Todo(int todoId, string description, bool done)
+            : this(todoId, description)
+        {
+            this.done = done;
+        }
+
+        public Todo(int todoId, string description, Person assignee)
+            : this(todoId, description)
+        {
+            this.assignee = assignee;
+        }
     }
 }

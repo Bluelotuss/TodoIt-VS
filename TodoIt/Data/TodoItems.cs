@@ -57,5 +57,32 @@ namespace TodoIt
         {
             tasks = new Todo[0];
         }
+
+        // a. public Todo[] FindByDoneStatus(bool doneStatus) – Returns array with objects that has
+        // a matching done status.
+
+        public Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            Todo[] newArray = new Todo[0];
+            for (var i = 0; i < tasks.Length; i++)
+            {
+                if (tasks[i].Done == doneStatus) 
+                {
+                    Array.Resize(ref newArray, Size() + 1);
+
+                    newArray[Size() - 1] = tasks[i];
+
+                    //return newArray;
+                }
+            }
+            return newArray;
+        }
+
+        // b. public Todo[] FindByAssignee(int personId) – Returns array with objects that has an
+        // assignee with a personId matching.
+        // c. public Todo[] FindByAssignee(Person assignee) – Returns array with objects that has
+        // sent in Person.
+        // d. public Todo[] FindUnassignedTodoItems() – Returns an array of objects that does not
+        // have an assignee set.
     }
 }

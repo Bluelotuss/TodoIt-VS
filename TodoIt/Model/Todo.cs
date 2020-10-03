@@ -3,7 +3,8 @@ namespace TodoIt
 {
     public class Todo
     {
-        public int todoId { get; set; }
+        readonly int todoId;
+        public int TodoId { get { return todoId; } }
         string description;
 
         public string Description

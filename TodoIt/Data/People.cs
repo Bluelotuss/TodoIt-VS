@@ -57,5 +57,32 @@ namespace TodoIt
         {
             people = new Person[0];
         }
+
+        // 11. Add the following to TodoItems AND People class.
+        // a.Functionality to remove object from array. (not nulling) First: you need to find the
+        // correct array index of the object. Second: You need to rebuild array by excluding the
+        // object on found index.
+
+        public Person[] Remove(int personToRemove)
+        {
+
+            Person[] newArray = new Person[0];
+
+            for (var i = 0; i < people.Length; i++)
+            {
+                if (i == (personToRemove - 1))
+                {
+                    continue;
+                }
+
+                Array.Resize(ref newArray, newArray.Length + 1);
+
+                newArray[newArray.Length - 1] = people[i];
+
+            }
+
+            return newArray;
+
+        }
     }
 }

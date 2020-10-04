@@ -27,7 +27,8 @@ namespace TodoIt
         }
         bool done;
         public bool Done { get { return done; } set { done = value; } }
-        public Person assignee { get; set; }
+        Person assignee;
+        public Person Assignee { get { return assignee; } set { assignee = value; } }
 
         public Todo(int todoId, string description)
         {

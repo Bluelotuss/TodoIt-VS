@@ -34,6 +34,8 @@ namespace TodoIt
             throw new InvalidOperationException("Did not find expected value.");
         }
 
+       
+
         // e. Add a method that creates a new Todo, adds the newly created object in the array and
         //then return the created object. You have to “expand” the Todo array. (tip: send in
         //parameters needed to create the Todo object and use the TodoSequencer to give a unique todoId)
@@ -68,9 +70,9 @@ namespace TodoIt
             {
                 if (tasks[i].Done == doneStatus) 
                 {
-                    Array.Resize(ref newArray, Size() + 1);
+                    Array.Resize(ref newArray, newArray.Length + 1);
 
-                    newArray[Size() - 1] = tasks[i];
+                    newArray[newArray.Length - 1] = tasks[i];
 
                     //return newArray;
                 }
@@ -80,9 +82,56 @@ namespace TodoIt
 
         // b. public Todo[] FindByAssignee(int personId) – Returns array with objects that has an
         // assignee with a personId matching.
+
+        public Todo[] FindByAssignee(int personId)
+        {
+            Todo[] newArray = new Todo[0];
+            for (var i = 0; i < tasks.Length; i++)
+            {
+                if (tasks[i].Assignee.PersonId == personId)
+                {
+                    Array.Resize(ref newArray, newArray.Length + 1);
+
+                    newArray[newArray.Length - 1] = tasks[i];
+                }
+            }
+            return newArray;
+        }
+
         // c. public Todo[] FindByAssignee(Person assignee) – Returns array with objects that has
         // sent in Person.
+
+        public Todo[] FindByAssignee(Person assignee)
+        {
+            Todo[] newArray = new Todo[0];
+            for (var i = 0; i < tasks.Length; i++)
+            {
+                if (tasks[i].Assignee != null )
+                {
+                    Array.Resize(ref newArray, newArray.Length + 1);
+
+                    newArray[newArray.Length - 1] = tasks[i];
+                }
+            }
+            return newArray;
+        }
+
         // d. public Todo[] FindUnassignedTodoItems() – Returns an array of objects that does not
         // have an assignee set.
+
+        public Todo[] FindUnassignedTodoItems()
+        {
+            Todo[] newArray = new Todo[0];
+            for (var i = 0; i < tasks.Length; i++)
+            {
+                if (tasks[i].Assignee == null)
+                {
+                    Array.Resize(ref newArray, newArray.Length + 1);
+
+                    newArray[newArray.Length - 1] = tasks[i];
+                }
+            }
+            return newArray;
+        }
     }
 }
